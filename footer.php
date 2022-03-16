@@ -1,4 +1,11 @@
-<footer class="footer" id="footer">
+<?php if( ! is_front_page() ): ?>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+<?php endif; ?>
+    <footer class="footer" id="footer">
       <div class="footerContents">
         <div class="footerContents-contact">
           <div class="enterprise-logo">
