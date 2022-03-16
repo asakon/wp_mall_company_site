@@ -60,3 +60,14 @@
         </div>
       </div>
     </header>
+    <section class="section-contents" id="keyvisual">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bg-section-keyvisual.jpg" alt="MAIN IMAGE" />
+      <div class="wrapper">
+        <h1 class="site-title">Connecting the future.</h1>
+        <p class="site-caption">
+          私たちパシフィックモール開発は<br />
+          世界各地のショッピングモール開発を通じて<br />
+          人と人、人と地域を結ぶお手伝いをしています。
+        </p>
+      </div>
+    </section>
