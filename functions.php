@@ -13,4 +13,15 @@ register_nav_menus(
     'place_footer' => 'フッターナビ'
   )
 );
+
+// メイン画像上に表示する文字列 
+function get_main_title() {
+  if( is_singular( 'post' ) ) {
+    // 投稿のとき、カテゴリー名を表示する
+    $o = get_the_category();
+    return $o[0]->name;
+  } elseif ( is_page() ) {
+    return get_the_title();
+  }
+}
 ?>
