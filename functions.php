@@ -22,6 +22,9 @@ function get_main_title() {
     return $o[0]->name;
   } elseif ( is_page() ) {
     return get_the_title();
+  } elseif ( is_category() ) {
+    // カテゴリーページのとき、カテゴリー名を表示する
+    return single_cat_title();
   }
 }
 ?>
