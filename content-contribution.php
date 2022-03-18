@@ -1,6 +1,6 @@
                       <article class="common-item">
                         <a class="card-link" href="<?php the_permalink(); ?>">
-                          <div class="image"><img src="<?php the_post_thumbnail(); ?>" alt="" /></div>
+                          <div class="image"><?php the_post_thumbnail(); ?></div>
                           <div class="body">
                             <time><?php the_time( 'Y.m.d' ); ?></time>
                             <p class="title"><?php the_title(); ?></p>
