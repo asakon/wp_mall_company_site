@@ -1,9 +1,16 @@
 <?php get_header(); ?>
     <section class="section-contents" id="shop">
       <div class="wrapper">
+<?php
+$shop_obj = get_page_by_path( 'shop' );
+$post = $shop_obj;
+setup_postdata( $post );
+$shop_title = get_the_title();
+?>
         <span class="section-title-en">Shop Information</span>
-        <h2 class="section-title">店舗情報</h2>
-        <p class="section-lead">パシフィックモール開発が取り組んだ ショッピングモールをご紹介します</p>
+        <h2 class="section-title"><?php the_title(); ?></h2>
+        <p class="section-lead"><?php echo get_the_excerpt(); ?></p>
+<?php wp_reset_postdata(); ?>
         <ul class="shops">
           <li class="shops-item">
             <a class="shop-link" href="#">
