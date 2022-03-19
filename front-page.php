@@ -11,14 +11,18 @@ $shop_title = get_the_title();
         <h2 class="section-title"><?php the_title(); ?></h2>
         <p class="section-lead"><?php echo get_the_excerpt(); ?></p>
 <?php wp_reset_postdata(); ?>
+
         <ul class="shops">
+<?php
+$shop_pages = get_child_pages( 4, $shop_obj->ID );
+if( $shop_pages->have_posts() ):
+  while( $shop_pages->have_posts() ): $shop_pages->the_post();
+?>
           <li class="shops-item">
-            <a class="shop-link" href="#">
-              <div class="shop-image">
-                <img src="#" alt="" />
-              </div>
+            <a class="shop-link" href="<?php the_permalink(); ?>">
+              <div class="shop-image"><?php the_post_thumbnail( 'common' ) ?></div>
               <div class="shop-body">
-                <p class="name">大手町モール</p>
+                <p class="name"><?php the_title(); ?></p>
                 <p class="location"></p>
                 <div class="buttonBox">
                   <button type="button" class="seeDetail">MORE</button>
@@ -26,52 +30,15 @@ $shop_title = get_the_title();
               </div>
             </a>
           </li>
-          <li class="shops-item">
-            <a class="shop-link" href="#">
-              <div class="shop-image">
-                <img src="#" alt="" />
-              </div>
-              <div class="shop-body">
-                <p class="name">タムリンモール</p>
-                <p class="location"></p>
-                <div class="buttonBox">
-                  <button type="button" class="seeDetail">MORE</button>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li class="shops-item">
-            <a class="shop-link" href="#">
-              <div class="shop-image">
-                <img src="#" alt="" />
-              </div>
-              <div class="shop-body">
-                <p class="name">チャオプラヤモール</p>
-                <p class="location"></p>
-                <div class="buttonBox">
-                  <button type="button" class="seeDetail">MORE</button>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li class="shops-item">
-            <a class="shop-link" href="#">
-              <div class="shop-image">
-                <img src="#" alt="" />
-              </div>
-              <div class="shop-body">
-                <p class="name">トラファルガーモール</p>
-                <p class="location"></p>
-                <div class="buttonBox">
-                  <button type="button" class="seeDetail">MORE</button>
-                </div>
-              </div>
-            </a>
-          </li>
+<?php
+  endwhile;
+  wp_reset_postdata();
+endif;
+?>
         </ul>
         <div class="section-buttons">
-          <button type="button" class="button button-ghost" onclick="javascript:location.href = '#';">
-            店舗情報一覧を見る
+          <button type="button" class="button button-ghost" onclick="javascript:location.href = '<?php echo esc_url( home_url( 'shop' ) ); ?>';">
+            <?php echo $shop_title; ?>一覧を見る
           </button>
         </div>
       </div>
