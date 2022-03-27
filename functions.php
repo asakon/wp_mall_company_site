@@ -122,3 +122,9 @@ function get_flexible_excerpt($number) {
   $value = wp_trim_words($value, $number, '...');
   return $value;
 }
+
+// get_the_excerpt()で取得する文字列に改行タグを挿入
+function apply_excerpt_br($value) {
+  return nl2br($value);
+}
+add_filter('get_the_excerpt', 'apply_excerpt_br');
