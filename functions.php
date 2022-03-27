@@ -104,4 +104,12 @@ function get_specific_posts( $post_type, $taxonomy = null, $term = null, $number
   return $specific_posts;
 }
 
+function cms_excerpt_more() {
+  return '...';
+}
+add_filter('excerpt_more', 'cms_excerpt_more');
 
+function cms_excerpt_length() {
+  return 80;
+}
+add_filter('excerpt_mblength', 'cms_excerpt_length');
