@@ -27,6 +27,8 @@ function get_main_title() {
     return single_cat_title();
   } elseif ( is_search() ) {
     return 'サイト内検索結果';
+  } elseif ( is_404() ) {
+    return 'ページが見つかりません';
   }
 }
 
@@ -78,7 +80,7 @@ function get_main_image() {
     return wp_get_attachment_image( $attachment_id, 'detail' );
   } elseif ( is_category( 'news' ) || is_singular( 'post' ) ) {
     return '<img src="'. get_template_directory_uri(). '/assets/images/bg-page-news.jpg">';
-  } elseif ( is_search() ) {
+  } elseif ( is_search() || is_404() ) {
     return '<img src="'. get_template_directory_uri(). '/assets/images/bg-page-search.jpg">';
   } else {
     return '<img src="'. get_template_directory_uri(). '/assets/images/bg-page-dummy.png">';
