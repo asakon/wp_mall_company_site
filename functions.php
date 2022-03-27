@@ -104,6 +104,9 @@ function get_specific_posts( $post_type, $taxonomy = null, $term = null, $number
   return $specific_posts;
 }
 
+// 抜粋機能を固定ページに使えるよう設定
+add_post_type_support('page', 'excerpt');
+
 function cms_excerpt_more() {
   return '...';
 }
