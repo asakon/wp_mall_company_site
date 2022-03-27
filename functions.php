@@ -116,3 +116,9 @@ function cms_excerpt_length() {
   return 80;
 }
 add_filter('excerpt_mblength', 'cms_excerpt_length');
+
+function get_flexible_excerpt($number) {
+  $value = get_the_excerpt();
+  $value = wp_trim_words($value, $number, '...');
+  return $value;
+}
